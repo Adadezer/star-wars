@@ -29,6 +29,22 @@
   color: #61dafb;
 }
 
+table {
+  border-collapse: collapse;
+  font-family: arial , sans-serif;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddd;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:nth-child( even ) {
+  background-color: #dddd;
+}
+
 @keyframes App-logo-spin {
 
   from {
