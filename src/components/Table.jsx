@@ -5,20 +5,28 @@ function Table() {
   const {
     data,
     filteredName: { filterByName: { name } },
-    filterByNumericValues: [{ column, comparison, value }],
+    // filterByNumericValues: [{ column, comparison, value }],
   } = useContext(PlanetsContext);
   // console.log('filterByNumericValues:', filterByNumericValues);
 
-  let filter = [];
-  if (name.length > 0) {
-    filter = data.filter((el) => el.name.includes(name));
-  } else if (comparison === 'maior que') {
-    filter = data.filter((el) => el[column] > Number(value));
-  } else if (comparison === 'menor que') {
-    filter = data.filter((el) => el[column] < Number(value));
-  } else if (comparison === 'igual a') {
-    filter = data.filter((el) => el[column] === value);
-  }
+  // let filter = [];
+  // if (name.length > 0) {
+  //   filter = data.filter((el) => el.name.includes(name));
+  // }
+
+  // switch (comparison) {
+  // case comparison === 'maior que':
+  //   filter = data.filter((el) => el[column] > Number(value));
+  //   break;
+  // case comparison === 'menor que':
+  //   filter = data.filter((el) => el[column] < Number(value));
+  //   break;
+  // case comparison === 'igual a':
+  //   filter = data.filter((el) => el[column] === Number(value));
+  //   break;
+  // default:
+  //   filter = data.filter((el) => el.name.includes(name));
+  // }
 
   return (
     <table>
@@ -40,7 +48,7 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        {filter.map((planet, index) => (
+        {data.filter((el) => el.name.includes(name)).map((planet, index) => (
           <tr key={ index }>
             <td>{planet.name}</td>
             <td>{planet.rotation_period}</td>

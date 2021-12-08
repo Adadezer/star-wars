@@ -7,7 +7,7 @@ const PlanetProvider = ({ children }) => {
   const [filteredName, setFilteredName] = useState({ filterByName: { name: '' } });
 
   const [filterByNumericValues, setfilterByNumericValues] = useState(
-    [{ column: 'population', comparison: 'maior que', value: 0 }],
+    { column: 'population', comparison: 'maior que', value: 0 },
   );
 
   const [selectionFilter, setSelectionFilter] = useState(
