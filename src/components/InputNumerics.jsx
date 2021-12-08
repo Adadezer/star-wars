@@ -6,8 +6,10 @@ function InputNumerics() {
     setfilterByNumericValues,
     selectionFilter,
     setSelectionFilter,
-    data,
     setData,
+    dataBackup,
+    optionsSelect,
+    setOptionsSelect,
   } = useContext(PlanetsContext);
 
   function handleChange({ target }) {
@@ -22,29 +24,24 @@ function InputNumerics() {
 
     let filter = [];
     switch (selectionFilter.comparison) {
-    case 'maior que': filter = data.filter((el) => (
+    case 'maior que': filter = dataBackup.filter((el) => (
       el[selectionFilter.column] > Number(selectionFilter.value)));
       break;
 
-    case 'menor que': filter = data.filter((el) => (
+    case 'menor que': filter = dataBackup.filter((el) => (
       el[selectionFilter.column] < Number(selectionFilter.value)));
       break;
 
-    case 'igual a': filter = data.filter((el) => (
+    case 'igual a': filter = dataBackup.filter((el) => (
       el[selectionFilter.column] === selectionFilter.value));
       break;
 
     default: return true;
     }
 
-    // let filter = [];
-    // if (comparison === 'maior que') {
-    //   filter = data.filter((el) => el[column] > Number(selectionFilter.value));
-    // } else if (comparison === 'menor que') {
-    //   filter = data.filter((el) => el[column] < Number(selectionFilter.value));
-    // } else if (comparison === 'igual a') {
-    //   filter = data.filter((el) => el[column] === selectionFilter.value);
-    // }
+    setOptionsSelect(
+      optionsSelect.filter((element) => element !== selectionFilter.column),
+    );
 
     setData(filter);
   }
@@ -57,11 +54,9 @@ function InputNumerics() {
         onChange={ handleChange }
         name="column"
       >
-        <option>population</option>
-        <option>orbital_period</option>
-        <option>diameter</option>
-        <option>rotation_period</option>
-        <option>surface_water</option>
+        {optionsSelect.map((option, index) => (
+          <option key={ index }>{ option }</option>
+        ))}
       </select>
 
       <select
