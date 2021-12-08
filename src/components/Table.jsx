@@ -2,8 +2,23 @@ import React, { useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
 
 function Table() {
-  const { data, filteredName: { filterByName: { name } } } = useContext(PlanetsContext);
-  console.log('data:', data);
+  const {
+    data,
+    filteredName: { filterByName: { name } },
+    filterByNumericValues: [{ column, comparison, value }],
+  } = useContext(PlanetsContext);
+  // console.log('filterByNumericValues:', filterByNumericValues);
+
+  let filter = [];
+  if (name.length > 0) {
+    filter = data.filter((el) => el.name.includes(name));
+  } else if (comparison === 'maior que') {
+    filter = data.filter((el) => el[column] > Number(value));
+  } else if (comparison === 'menor que') {
+    filter = data.filter((el) => el[column] < Number(value));
+  } else if (comparison === 'igual a') {
+    filter = data.filter((el) => el[column] === value);
+  }
 
   return (
     <table>
@@ -25,24 +40,23 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        {data.filter((element) => element.name.includes(name)) // vejo qual elemento do array data tem o nome q está no filteredName
-          .map((planet, index) => (
-            <tr key={ index }>
-              <td>{planet.name}</td>
-              <td>{planet.rotation_period}</td>
-              <td>{planet.orbital_period}</td>
-              <td>{planet.diameter}</td>
-              <td>{planet.climate}</td>
-              <td>{planet.gravity}</td>
-              <td>{planet.terrain}</td>
-              <td>{planet.surface_water}</td>
-              <td>{planet.population}</td>
-              <td>{planet.films}</td>
-              <td>{planet.created}</td>
-              <td>{planet.edited}</td>
-              <td>{planet.url}</td>
-            </tr>
-          ))}
+        {filter.map((planet, index) => (
+          <tr key={ index }>
+            <td>{planet.name}</td>
+            <td>{planet.rotation_period}</td>
+            <td>{planet.orbital_period}</td>
+            <td>{planet.diameter}</td>
+            <td>{planet.climate}</td>
+            <td>{planet.gravity}</td>
+            <td>{planet.terrain}</td>
+            <td>{planet.surface_water}</td>
+            <td>{planet.population}</td>
+            <td>{planet.films}</td>
+            <td>{planet.created}</td>
+            <td>{planet.edited}</td>
+            <td>{planet.url}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

@@ -3,6 +3,7 @@ import './App.css';
 import PlanetsProvider from './context/PlanetsProvider';
 import Table from './components/Table';
 import InputFilter from './components/InputFilter';
+import InputNumerics from './components/InputNumerics';
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
 
       <PlanetsProvider>
         <InputFilter />
+        <br />
+        <br />
+        <InputNumerics />
         <Table />
       </PlanetsProvider>
     </>

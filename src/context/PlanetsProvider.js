@@ -6,6 +6,14 @@ const PlanetProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [filteredName, setFilteredName] = useState({ filterByName: { name: '' } });
 
+  const [filterByNumericValues, setfilterByNumericValues] = useState(
+    [{ column: 'population', comparison: 'maior que', value: 0 }],
+  );
+
+  const [selectionFilter, setSelectionFilter] = useState(
+    { column: 'population', comparison: 'maior que', value: 0 },
+  );
+
   const fetchPlanets = async () => {
     const response = await fetch('https://swapi-trybe.herokuapp.com/api/planets/');
     const responseJson = await response.json();
@@ -18,6 +26,10 @@ const PlanetProvider = ({ children }) => {
     setData,
     filteredName,
     setFilteredName,
+    filterByNumericValues,
+    setfilterByNumericValues,
+    selectionFilter,
+    setSelectionFilter,
   };
 
   useEffect(() => { fetchPlanets(); }, []);
