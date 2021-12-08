@@ -10,10 +10,11 @@ function Table() {
 
   return (
     <>
-      { filterByNumericValues.length > 0
-        ? (filterByNumericValues.map((element, index) => (
-          <div key={ index }>{ element.column }</div>
-        ))) : ''}
+      { filterByNumericValues.length > 0 // como o array inicia vazio se for maior q 0 faz a logica, senão retorna uma string, sem isso o código da erro
+        ? (filterByNumericValues.map(
+          (element, index) => (<div key={ index }>{ element.column }</div>), // pego a column dentro de filterByNumericValues, e mostro numa div
+        )) : ''}
+
       <table>
         <thead>
           <tr>

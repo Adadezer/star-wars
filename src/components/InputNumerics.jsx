@@ -36,14 +36,15 @@ function InputNumerics() {
       el[selectionFilter.column] === selectionFilter.value));
       break;
 
+      // databackup é usado para a consulta sempre ser feita num data completo, quando o primeiro filtro é feito, ele modifica o data original com o valor filtrado (setData(filter)), e na segunda vez q é feito um novo filtro, ele tem q pegar os valores do array completo, senão a tabela sempre terá valores faltando
     default: return true;
     }
+    setData(filter);
 
     setOptionsSelect(
       optionsSelect.filter((element) => element !== selectionFilter.column),
+      // quando um filtro é feito, ele tira a option usada do select column (req.4)
     );
-
-    setData(filter);
   }
 
   return (
