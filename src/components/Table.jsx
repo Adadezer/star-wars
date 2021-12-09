@@ -4,16 +4,37 @@ import PlanetsContext from '../context/PlanetsContext';
 function Table() {
   const {
     data,
+    setData,
+    dataBackup,
     filteredName: { filterByName: { name } },
     filterByNumericValues,
+    setfilterByNumericValues,
+    optionsSelect,
+    setOptionsSelect,
   } = useContext(PlanetsContext);
+
+  function recolocarColumn({ target }) {
+    // console.log(filterByNumericValues[target.id]);
+    setOptionsSelect([...optionsSelect, filterByNumericValues[target.id].column]); // coloco a option retirada devolta nas options
+    setfilterByNumericValues(
+      filterByNumericValues.filter((el) => el !== filterByNumericValues[target.id]),
+    ); // retiro de filterByNumericValues o filtro q foi separado (botão X)
+    setData(dataBackup); // seto a tabela d volta ao valor inicial
+  }
 
   return (
     <>
-      { filterByNumericValues.length > 0 // como o array inicia vazio se for maior q 0 faz a logica, senão retorna uma string, sem isso o código da erro
-        ? (filterByNumericValues.map(
-          (element, index) => (<div key={ index }>{ element.column }</div>), // pego a column dentro de filterByNumericValues, e mostro numa div
-        )) : ''}
+      { filterByNumericValues.length > 0 // como o array filterByNumericValues inicia vazio, se ele for maior q 0, faz a logica, senão retorna uma string, sem isso o código da erro
+        ? (filterByNumericValues.map((element, index) => (
+          <>
+            <br />
+            {/* pego a column dentro de filterByNumericValues, e mostro numa div */}
+            <div key={ index } data-testid="filter">
+              {`${element.column} ${element.comparison} ${element.value}`}
+              <button type="button" id={ index } onClick={ recolocarColumn }>X</button>
+            </div>
+          </>
+        ))) : ''}
 
       <table>
         <thead>

@@ -3,6 +3,7 @@ import PlanetsContext from '../context/PlanetsContext';
 
 function InputNumerics() {
   const {
+    filterByNumericValues,
     setfilterByNumericValues,
     selectionFilter,
     setSelectionFilter,
@@ -20,7 +21,7 @@ function InputNumerics() {
   }
 
   function filterButton() {
-    setfilterByNumericValues([selectionFilter]);
+    setfilterByNumericValues([...filterByNumericValues, selectionFilter]);
 
     let filter = [];
     switch (selectionFilter.comparison) {
@@ -44,6 +45,7 @@ function InputNumerics() {
     setOptionsSelect(
       optionsSelect.filter((element) => element !== selectionFilter.column),
       // quando um filtro é feito, ele tira a option usada do select column (req.4)
+
     );
   }
 
