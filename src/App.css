@@ -1,48 +1,52 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  align-items: center;
-  background-color: #282c34;
+body {
+  background-color: whitesmoke;
+  background-image: url('https://www.thesun.co.uk/wp-content/uploads/2020/03/7-1.png');
+  background-size: cover;
+  box-sizing: border-box;
   color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.logoStarWarsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.logoStarWars {
+  width: 20%;
+
+}
+
+.btn-outline-warning {
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn-danger {
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 table {
+  background-color: rgba(23, 24, 24, 0.867);
   border-collapse: collapse;
   font-family: arial , sans-serif;
   width: 100%;
 }
 
+thead {
+  background-color: rgba(255, 183, 0, 0.863);
+  color: black;
+}
+
 td, th {
-  border: 1px solid #dddd;
+  border: 2px solid rgba(32, 32, 32, 0.867);
   padding: 8px;
   text-align: left;
 }
 
 tr:nth-child( even ) {
-  background-color: #dddd;
+  background-color: rgba(7, 7, 7, 0.867);
 }
 
 @keyframes App-logo-spin {

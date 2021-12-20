@@ -15,6 +15,7 @@ function InputFilter() {
     <label htmlFor="nameFilter">
       Digite o nome:
       <input
+        className="btn btn-outline-warning"
         data-testid="name-filter"
         type="text"
         onChange={ handleChange }

@@ -52,6 +52,7 @@ function InputNumerics() {
   return (
     <div>
       <select
+        className="btn btn-outline-warning"
         data-testid="column-filter"
         value={ selectionFilter.column }
         onChange={ handleChange }
@@ -63,6 +64,7 @@ function InputNumerics() {
       </select>
 
       <select
+        className="btn btn-outline-warning"
         data-testid="comparison-filter"
         value={ selectionFilter.comparison }
         onChange={ handleChange }
@@ -74,6 +76,7 @@ function InputNumerics() {
       </select>
 
       <input
+        className="btn btn-outline-warning"
         data-testid="value-filter"
         value={ selectionFilter.value }
         onChange={ handleChange }
@@ -82,6 +85,7 @@ function InputNumerics() {
       />
 
       <button
+        className="btn btn-outline-warning"
         type="button"
         data-testid="button-filter"
         onClick={ filterButton }

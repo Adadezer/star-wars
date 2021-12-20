@@ -31,7 +31,14 @@ function Table() {
             {/* pego a column dentro de filterByNumericValues, e mostro numa div */}
             <div key={ index } data-testid="filter">
               {`${element.column} ${element.comparison} ${element.value}`}
-              <button type="button" id={ index } onClick={ recolocarColumn }>X</button>
+              <button
+                className="btn btn-danger btn-sm"
+                type="button"
+                id={ index }
+                onClick={ recolocarColumn }
+              >
+                X
+              </button>
             </div>
           </>
         ))) : ''}
