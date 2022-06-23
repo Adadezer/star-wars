@@ -8,7 +8,11 @@ Nesse projeto, foram utilizados:
 * React Hook useEffect_;
 * React Hooks_ customizados.
 
+# Aplicação
+A aplicação pode ser acessada clicando [aqui](https://star-wars-ten.vercel.app/)
+
 # Como Instalar e Utilizar
+Caso queira rodar a aplicação localmente:
 
  1- Abra o terminal, e clone o repositório 
  
