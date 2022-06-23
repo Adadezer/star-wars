@@ -1,5 +1,5 @@
 # O que é a aplicação
-Desenvolvido enquanto estudante da trybe, o projeto é uma lista com filtros de planetas do universo de Star Wars usando **Context API e Hooks** para controlar os estados globais. 
+Desenvolvido enquanto estudante da trybe no módulo de Front-End, o projeto é uma lista com filtros de planetas do universo de Star Wars usando **Context API e Hooks** para controlar os estados globais. 
 
 Nesse projeto, foram utilizados:
 * Context API_ do **React** para gerenciar estado.
