@@ -9,6 +9,12 @@ Nesse projeto, foram utilizados:
 * React Hooks_ customizados.
 
 # Aplicação
+
+Demonstração do projeto:
+<p align="center">
+    <img windth="470" src="./src/image/star-wars.gif">
+</p>
+
 A aplicação pode ser acessada clicando [aqui](https://star-wars-ten.vercel.app/)
 
 # Como Instalar e Utilizar
